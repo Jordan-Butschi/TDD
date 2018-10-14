@@ -1,4 +1,3 @@
-db.squlite3
 geckodriver.log
 db.sqlite3
 __pycache__
@@ -6,5 +5,3 @@ __pycache__
 db.sqlite3
 virtualenv
 Python-3.6.3.tgz
-Python-3.6.3.tgz
-virtualenv
