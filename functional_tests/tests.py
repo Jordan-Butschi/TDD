@@ -1,12 +1,15 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 import time
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
+        #Check home_page
+        self.browser.get(self.live_server_url)
 
     def tearDown(self):
         self.browser.quit()
@@ -17,8 +20,6 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn(row_test, [row.text for row in rows])
 
     def test_bunchOfTests(self):
-        #Check home_page
-        self.browser.get('http://localhost:8000')
 
         #Check title and header
         self.assertIn('To-Do', self.browser.title)
@@ -53,7 +54,3 @@ class NewVisitorTest(unittest.TestCase):
 
         #Finish the test
         self.fail('Finish the test!')
-
-
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
